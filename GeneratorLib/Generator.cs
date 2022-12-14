@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks.Dataflow;
+﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Threading.Tasks.Dataflow;
 
 namespace GeneratorLib
 {
@@ -62,7 +65,59 @@ namespace GeneratorLib
         private async Task<List<FileInfo>> GenerateTests(FileInfo fi)
         {
             Console.WriteLine("Generating.....");
-            return null;
+            return await GenerateCode(fi);
+        }
+        private async Task<List<FileInfo>> GenerateCode(FileInfo fi)
+        {
+            var root = await CSharpSyntaxTree.ParseText(fi.Code).GetRootAsync();
+            return GenerateCodeFromTree(root);
+        }
+
+
+        private List<FileInfo> GenerateCodeFromTree(SyntaxNode root)
+        {
+            var usingDirectives = new List<UsingDirectiveSyntax>(root
+                .DescendantNodes()
+                .OfType<UsingDirectiveSyntax>());
+            var namespaces = new List<NamespaceDeclarationSyntax>(root
+                .DescendantNodes()
+                .OfType<NamespaceDeclarationSyntax>());
+
+            var nsInfo = new List<NamespaceData>();
+            foreach (var ns in namespaces)
+            {
+                var innerClasses = ns.DescendantNodes().OfType<ClassDeclarationSyntax>();
+                var innerNsClasses = new List<ClassData>();
+                foreach (var innerNsClass in innerClasses)
+                {
+                    innerNsClasses.Add(new ClassData(innerNsClass.Identifier.ToString(),
+                        GetMethods(innerNsClass)));
+                }
+                nsInfo.Add(new NamespaceData(ns.Name.ToString(), innerNsClasses));
+            }
+            return CodeGenerator.Generate(nsInfo, usingDirectives);
+        }
+
+        private List<MethodData> GetMethods(ClassDeclarationSyntax innerNsClass)
+        {
+            var methods = innerNsClass
+                .DescendantNodes()
+                .OfType<MethodDeclarationSyntax>();
+            var result = new List<MethodData>();
+            foreach (var method in methods)
+            {
+                result.Add(new MethodData(method.Identifier.ToString(),
+                    method.ReturnType, GetParameters(method)));
+            }
+            return result;
+        }
+
+
+        private List<ParametrsData> GetParameters(MethodDeclarationSyntax method)
+        {
+            return method.ParameterList.Parameters
+                .Select(param => new ParametrsData(param.Identifier.Value.ToString(), param.Type))
+                .ToList();
         }
 
     }

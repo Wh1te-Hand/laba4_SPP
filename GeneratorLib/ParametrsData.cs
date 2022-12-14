@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,15 @@ using System.Threading.Tasks;
 
 namespace GeneratorLib
 {
-    public class NamespaceData
+    public class ParametrsData
     {
         public string Name { get; set; }
-        public List<ClassData> Classes { get; set; }
+        public TypeSyntax Type { get; }
 
-        public NamespaceData(string name, List<ClassData> classes)
+        public ParametrsData(string name, TypeSyntax type)
         {
             Name = name;
-            Classes = classes;
+            Type = type;
         }
-
     }
 }
