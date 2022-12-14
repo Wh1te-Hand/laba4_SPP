@@ -15,7 +15,7 @@ namespace lab4_SPP
         public static async Task Method1()
         {
             string path = @"..\\..\\..\\Files";
-            string resultPath = @"..\\..\\..\\..\\TestProject\\ResultTests";
+            string resultPath = @"..\\..\\..\\..\\Result";
 
             var classFiles = new List<string>();
             foreach (string Onefile in Directory.GetFiles(path, "*.cs"))
