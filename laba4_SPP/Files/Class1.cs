@@ -11,12 +11,11 @@ namespace laba4_SPP.Files
         public string Field1;
         public bool Field2;
 
-        public int CharCount(string str, char c)
+        public int HelloWorld()
         {
             int counter = 0;
-            for (int i = 0; i < str.Length; i++)
+            for (int i = 0; i < 13; i++)
             {
-                if (str[i] == c)
                     counter++;
             }
             return counter;
