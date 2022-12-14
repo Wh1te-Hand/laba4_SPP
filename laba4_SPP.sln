@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "laba4_SPP", "laba4_SPP\laba4_SPP.csproj", "{57734448-1549-49C6-A51E-8459694C7B73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laba4_SPP", "laba4_SPP\laba4_SPP.csproj", "{57734448-1549-49C6-A51E-8459694C7B73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratorLib", "GeneratorLib\GeneratorLib.csproj", "{02F47882-AB4D-4136-9D31-D8FB8C8B19B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneratorLib", "GeneratorLib\GeneratorLib.csproj", "{02F47882-AB4D-4136-9D31-D8FB8C8B19B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testGenerator", "testGenerator\testGenerator.csproj", "{5923CB1B-0C4F-4810-AE6E-50B00DB93C8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{02F47882-AB4D-4136-9D31-D8FB8C8B19B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02F47882-AB4D-4136-9D31-D8FB8C8B19B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02F47882-AB4D-4136-9D31-D8FB8C8B19B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5923CB1B-0C4F-4810-AE6E-50B00DB93C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5923CB1B-0C4F-4810-AE6E-50B00DB93C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5923CB1B-0C4F-4810-AE6E-50B00DB93C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5923CB1B-0C4F-4810-AE6E-50B00DB93C8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
