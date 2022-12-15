@@ -11,10 +11,10 @@ namespace laba4_SPP.Files
         public string Field1;
         public bool Field2;
 
-        public int HelloWorld()
+        public int HelloWorld(int count)
         {
             int counter = 0;
-            for (int i = 0; i < 13; i++)
+            for (int i = 0; i < count; i++)
             {
                     counter++;
             }

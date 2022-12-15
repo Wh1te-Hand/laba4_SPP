@@ -10,16 +10,13 @@ namespace testGenerator
         [TestInitialize]
         public async Task SetupAsync()
         {
-            generatedClassFolder = @"..\\..\\..\\..\\Result";
+            generatedClassFolder = @"C:\Users\White Hand\source\repos\laba4_SPP\testGenerator\Result\";
             testClassesFolder = @"..\\..\\..\\..\\laba4_SPP\\Files";
             var allTestClasses = new List<string>();
             foreach (string path in Directory.GetFiles(testClassesFolder, "*.cs"))
             {
                 allTestClasses.Add(path);
             }
-
-
-
             Generator generator = new(allTestClasses, generatedClassFolder, 3, 3, 3);
             await generator.Generate();
         }
@@ -37,7 +34,7 @@ namespace testGenerator
             {
                 classFiles.Add(Onefile);
             }
-            Assert.AreEqual(generatedFiles.Count(), 6);
+            Assert.AreEqual(generatedFiles.Count(), 8);
             Assert.AreEqual(classFiles.Count(), 5);
         }
 
@@ -46,7 +43,7 @@ namespace testGenerator
         {
 
             var classCount = Directory.GetFiles(generatedClassFolder)
-                .Count(file => file.Contains("extra"));
+                .Count(file => file.Contains("extra_"));
             Assert.AreEqual(classCount, 1);
         }
 

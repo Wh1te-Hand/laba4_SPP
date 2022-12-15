@@ -15,16 +15,16 @@ namespace lab4_SPP
         public static async Task Method1()
         {
             string path = @"..\\..\\..\\Files";
-            string resultPath = @"..\\..\\..\\..\\Result";
+            string resultPath = @"C:\Users\White Hand\source\repos\laba4_SPP\testGenerator\Result\";
 
             var classFiles = new List<string>();
             foreach (string Onefile in Directory.GetFiles(path, "*.cs"))
             {
                 classFiles.Add(Onefile);
             }
-            int maxFilesToLoad = 1;
-            int maxExecuteTasks = 1;
-            int maxFilesToWrite = 1;
+            int maxFilesToLoad = 2;
+            int maxExecuteTasks = 2;
+            int maxFilesToWrite = 2;
             Generator generator = new Generator(classFiles, resultPath, maxFilesToLoad, maxExecuteTasks, maxFilesToWrite);
             await generator.Generate();
 
