@@ -29,4 +29,11 @@ namespace laba4_SPP.Files
             return counter;
         }
     }
+    public class extra
+    {
+        public Boolean Method_666()
+        {
+            return true;
+        }
+    }
 }

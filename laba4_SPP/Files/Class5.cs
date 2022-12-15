@@ -34,12 +34,25 @@ namespace laba4_SPP.Files
             return counter;
         }
     }
-
+ }
+namespace extra
+{
     public class extra
     {
         public Boolean Method_1()
-        { 
-        return true;
+        {
+            return true;
+        }
+    }
+}
+
+namespace extra3
+{
+    public class extra
+    {
+        public Boolean Method_1()
+        {
+            return true;
         }
     }
 }

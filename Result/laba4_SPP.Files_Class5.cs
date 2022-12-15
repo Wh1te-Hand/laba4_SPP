@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using laba4_SPP.Files;
+using extra;
+using extra3;
 namespace laba4_SPP.Files
 {
     [TestFixture]
