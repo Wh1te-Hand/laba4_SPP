@@ -63,7 +63,7 @@ namespace GeneratorLib
             classUsings.Add(
                 SyntaxFactory.UsingDirective(
                     SyntaxFactory.QualifiedName(
-                        SyntaxFactory.IdentifierName("TestTools"),
+                        SyntaxFactory.IdentifierName("Microsoft.VisualStudio.TestTools"),
                         SyntaxFactory.IdentifierName("UnitTesting"))));
 
             foreach (var namespaceInfo in namespaces)
